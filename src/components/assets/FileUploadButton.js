@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
@@ -30,12 +30,12 @@ export default function FileUploadButton() {
   /**
    * 파일 업로드 확인
    */
-    const onChangeFile = e => {
-    if (e.target.files && e.target.files.length > 0) {
-      React.setFile(e.target.files[0]);
-      console.log(e.target.files)
-    }
-  }
+  //   const onChangeFile = e => {
+  //   if (e.target.files && e.target.files.length > 0) {
+  //     setFile(e.target.files[0]);
+  //     console.log(e.target.files)
+  //   }
+  // }
 
   const Input = styled('input')({
     display: 'none',
@@ -67,18 +67,19 @@ export default function FileUploadButton() {
                   formData.append("fileName", fileName);
                   console.log(file,fileName)
                   // 서버 업로드 부분
-                  // try {
-                  //   axios.post("http://localhost:3001/fileUpload", formData).then(
-                  //     (response)=>{
-                  //       console.log(response);
-                  //     }
-                  //   )
+                  try {
+                     axios.post("http://localhost:3001/fileUpload", formData).then(
+                       (response)=>{
+                         console.log(response);
+                       }
+                     )
 
-                  // } catch (exception) {
-                  //   console.log(exception);
-                  // }
+                   } catch (exception) {
+                     console.log(exception);
+                   }
+                  }
 
-                } }>업로드!!</Button>
+                 }>업데이트!!</Button>
               </label>
             </Box>
           </Modal>
@@ -108,16 +109,16 @@ export default function FileUploadButton() {
                   formData.append("fileName", fileName);
                   console.log(file,fileName)
                   // 서버 업로드 부분
-                  // try {
-                  //   axios.post("http://localhost:3001/fileUpload", formData).then(
-                  //     (response)=>{
-                  //       console.log(response);
-                  //     }
-                  //   )
+                  try {
+                    axios.post("http://localhost:3001/fileUpload", formData).then(
+                       (response)=>{
+                         console.log(response);
+                       }
+                     )
 
-                  // } catch (exception) {
-                  //   console.log(exception);
-                  // }
+                  } catch (exception) {
+                  console.log(exception);
+                   }
 
                 } }>업로드!!</Button>
               </label>
